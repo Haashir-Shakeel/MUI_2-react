@@ -1,19 +1,27 @@
 import { Navbar } from "./components/Navbar";
-import {Box, Divider, Stack} from "@mui/material"
+import {Box, Divider, Stack,styled} from "@mui/material"
 import { Header } from "./components/Header";
 import { Goals } from "./components/Goal";
 
+const StyledBox = styled(Box)(({theme})=>({
+  minHeight: '100vh',
+  backgroundImage: `url(${process.env.PUBLIC_URL + '/bg1.jpg'})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover'
+
+}))
+
 function App() {
   return (
-    <Box sx={{width:"100%"}}>
-      <Navbar></Navbar>
-      <Divider></Divider>
-      <Stack spacing={2}>
-        <Header></Header>
+    <StyledBox>
+      
+      <Stack spacing={4} justifyContent="center" >
+        <Navbar></Navbar>
         <Divider></Divider>
-        <Goals></Goals>
+        <Header/>
+        <Goals/>
       </Stack>
-    </Box>
+    </StyledBox>
   );
 }
 
